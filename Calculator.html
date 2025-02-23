@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Divya's Calculator</title>
+        <style>
+            body {
+                margin: 0px;
+                padding: 0px;
+                text-align: center;
+                background-image: url(https://img.pikbest.com/backgrounds/20200611/cartoon-wind-school-season-elementary-school-poster-background_2754153.jpg!sw800);
+                background-repeat: no-repeat;
+                background-size: 1900px 1000px;
+            }
+            h1 {
+                font-size: 75px;
+                font-family:Georgia, 'Times New Roman', Times, serif;
+            }
+            .calculator {
+                display: inline-block;
+                padding: 10px;
+                border: none;
+                border-radius: 15px;
+                background-color: rgba(11, 10, 10, 0.4);
+                box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            input {
+                width: 125px;
+                height: 100px;
+                font-size: 40px;
+                border-radius: 10px;
+                margin: 5px;
+            }
+            .r {
+                background-color: floralwhite;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Calculator</h1>
+        <div class="calculator">
+            <form action="" name="calci">
+                <input type="text" name="display" style="width: 575px;">
+                <br>
+                <input class="r" type="button" value="C" style="color: white; background-color: red;" onclick="clean()">
+                <input class="r" type="button" value="( " style="color: green; background-color: gold;" onclick="insert('(')">
+                <input class="r" type="button" value=")" style="color: green; background-color: gold;" onclick="insert(')')">
+                <input class="r" type="button" value="/" style="color: green; background-color: gold;" onclick="insert('/')">
+                <br>
+                <input class="r" type="button" value="7" onclick="insert('7')">
+                <input class="r" type="button" value="8" onclick="insert('8')">
+                <input class="r" type="button" value="9" onclick="insert('9')">
+                <input class="r" type="button" value="*" style="color: green; background-color: gold;" onclick="insert('*')">
+                <br>
+                <input class="r" type="button" value="4" onclick="insert('4')">
+                <input class="r" type="button" value="5" onclick="insert('5')">
+                <input class="r" type="button" value="6" onclick="insert('6')">
+                <input class="r" type="button" value="-" style="color: green; background-color: gold;" onclick="insert('-')">
+                <br>
+                <input class="r" type="button" value="1" onclick="insert('1')">
+                <input class="r" type="button" value="2" onclick="insert('2')">
+                <input class="r" type="button" value="3" onclick="insert('3')">
+                <input class="r" type="button" value="+" style="color: green; background-color: gold;" onclick="insert('+')">
+                <br>
+                <input class="r" type="button" value="%" style="color: green; background-color: gold;" onclick="insert('%')">
+                <input class="r" type="button" value="0" onclick="insert('0')">
+                <input class="r" type="button" value="." onclick="insert('.')">
+                <input class="r" type="button" value="=" style="background-color: green; color: white;" onclick="equal()">
+
+            </form>
+        </div>
+        <script>
+            function insert(num) {
+                document.calci.display.value = document.calci.display.value + num;
+            }
+        
+            function equal() {
+                var exp = document.calci.display.value;
+                if(exp) {
+                    document.calci.display.value = eval(exp);
+                }
+            }
+        
+            function clean() {
+                document.calci.display.value = "";
+            }
+        
+            function back() {
+                var exp = document.calci.display.value;
+                document.calci.display.value = exp.substring(0, exp.length - 1);
+            }
+        </script>        
+    </body>
+</html>

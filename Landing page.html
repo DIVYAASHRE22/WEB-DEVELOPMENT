@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Divya's Landing page
+        </title>
+        <style>
+            *{
+                margin:0;
+                padding:0;
+            }
+            body{
+                margin:0;
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                font-size:17px;
+                color: #ffffff;
+                line-height:2.6;
+            }
+            section{
+                background-image: url(http://images5.fanpop.com/image/photos/28400000/Walt-Disney-Presents-walt-disney-characters-28413975-2560-1926.jpg);
+            }
+            #showcase{
+                background-image:url('https://wallpapers.com/images/hd/disney-world-2880-x-1800-background-nxm22n0a0xgwdl2u.jpg');
+                background-size:cover;
+                background-position:center;
+                height:100vh;
+                display:flex;
+                flex-direction:column;
+                justify-content:center;
+                align-items:center;
+                text-align:center;
+                padding:0 20px;
+            }
+            #showcase h1{
+                font-size:50px;
+                line-height:1.2;
+            }
+            #showcase p{
+                font-size:20px;
+            }
+            #showcase .button{
+                font-size:18px;
+                text-decoration:none;
+                color: #eb02fe;
+                border: none 1px solid;
+                padding:10px 20px;
+                border-radius:10px;
+                margin-top:30px;
+            }
+            #showcase .button:hover{
+                background:#926239;
+                color:#fff;
+            }
+            section{
+                padding: 20px;
+                color: whitesmoke;
+                font-size: 25px;
+                background-image: url(https://wallpapers.com/images/featured/best-disney-background-xl586pozxou14ifp.jpg);
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                height: 1100px; /* Adjust the height as needed */
+            }
+            .a{
+                color: #fff;
+            }
+        </style>
+    </head>
+    <body>
+        <header id="showcase">
+            <h1>Welcome To The Disney World</h1>
+            <p>
+                Disney World is a massive, world-famous theme park in Florida, known for its magical attractions, characters, and immersive experiences.
+            </p>
+            <a href="#" class="button">Read More</a>
+        </header>
+        <section>
+            <br>
+            <p id="a">
+                Disney World, officially known as Walt Disney World Resort, is a world-famous theme park and entertainment complex in Orlando, Florida. Opened in 1971, it spans over 25,000 acres and includes four theme parks—Magic Kingdom, Epcot, Disney's Hollywood Studios, and Disney's Animal Kingdom—along with water parks, resorts, and shopping areas. Known as "The Most Magical Place on Earth," it attracts millions of visitors yearly with its iconic attractions, beloved characters, and immersive experiences.
+            </p>
+            <p>
+                The heart of Disney World is Magic Kingdom, home to Cinderella’s Castle and classic attractions like Space Mountain and Pirates of the Caribbean. Epcot celebrates innovation and world cultures, featuring attractions like Spaceship Earth and the World Showcase. Disney’s Hollywood Studios brings movie magic to life with Star Wars: Galaxy’s Edge and Toy Story Land, while Animal Kingdom blends wildlife and adventure, featuring the stunning Pandora – The World of Avatar.
+                <br>
+                Beyond the theme parks, Disney World offers two water parks—Blizzard Beach and Typhoon Lagoon—along with a variety of resorts, fine dining, golf courses, and entertainment districts like Disney Springs. With constant expansion and new attractions, Disney World continues to evolve, maintaining its reputation as "The Most Magical Place on Earth."
+            </p>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                let button = document.querySelector(".button");
+        
+                button.addEventListener("click", function(event) {
+                    event.preventDefault(); // Prevent default link behavior
+                    document.querySelector("br").scrollIntoView({
+                        behavior: "smooth"
+                    });
+                });
+            }); 
+          </script>
+    </body>
+</html>    
+    
+    
+  
+  

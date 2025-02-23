@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        body {
+            color: #ededed;
+            background: url(https://www.dxbsoft.com/wp-content/uploads/2018/08/dark-purple-wallpaper-desktop-background-wallpapers-hd-2.jpeg) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 10%;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 55px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: default;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+        }
+        .navbar a {
+            font-size: 22px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            margin-left: 35px;
+            transition: .3s;
+            opacity: 0;
+            animation: slideTop  5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+        .navbar a:hover {
+            color: #bef;
+        }
+        .home {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10%;
+            min-height: 100vh;
+        }
+        .home-content {
+            max-width: 600px;
+        }
+        .home-content h1 {
+            font-size: 50px;
+            font-weight: 700;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+            animation-delay: 1s;
+        }
+        .home-content h3 {
+            font-size: 32px;
+            font-weight: 700;
+            opacity: 0;
+            animation: slideBottom 1s ease forwards;
+            animation-delay: .7s;
+        }
+        .home-content h3 span {
+            color: #0ef;
+        }
+        .home-content p {
+            font-size: 20px;
+            opacity: 0;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: 1s;
+        }
+        .home-sci a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: 2px solid #0ef;
+            border-radius: 30px;
+            font-size: 30px;
+            color: #0ef;
+            text-decoration: none;
+            margin: 30px 15px 30px 0px;
+            transition: .5s ease;
+            opacity: 0;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+        .home-sci a:hover {
+            background: #0ef;
+            color: #081b29;
+            box-shadow: 0 0 20px #0ef;
+        }
+        .btn-box {
+            display: inline-block;
+            padding: 12px;
+            background: #0ef;
+            border-radius: 40px;
+            font-size: 20px;
+            font-style: italic;
+            color: #081b29;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            box-shadow: 0 0 5px #0ef, 0 0 25px #0ef;
+        }
+        .btn-box:hover {
+            box-shadow: 0 0 50px cyan, 0 0 100px cyan;
+        }
+        .image-container {
+            position: relative;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 0 0 15px #0ef, 0 0 50px #0ef,0 0 100px #0ef;
+            animation: glow 2s infinite alternate;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .about {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 100px 10%;
+            gap: 4rem;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .about .image-container {
+            width: 350px;
+            height: 350px;
+        }
+        .about-text {
+            flex: 1;
+            text-align: left;
+        }
+        .about-text h2 {
+            font-size: 60px;
+        }
+        .about-text h2 span {
+            color: #0ef;
+        }
+        .about-text h4{
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.7;
+            margin: 15px 0 30px;
+        }
+        .about-text p{
+            color: aliceblue;
+            font-size: 25px;
+            line-height: 1.4;
+            margin-bottom: 4rem;
+        }
+        @keyframes slideRight {
+            0% { 
+                transform: translateX(-100px); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateX(0px); 
+                opacity: 1; 
+            }
+        }
+        @keyframes slideTop {
+            0% { 
+                transform: translateY(100px); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateY(0px); 
+                opacity: 1; 
+            }
+        }
+        @keyframes slideBottom {
+            0% { 
+                transform: translateY(-100px); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateY(0px); 
+                opacity: 1; 
+            }
+        }
+        @keyframes slideLeft {
+            0% { 
+                transform: translateX(100px); 
+                opacity: 0; 
+            }
+            100% { 
+                transform: translateX(0px); 
+                opacity: 1; 
+            }
+        }
+        @keyframes glow {
+            0% { 
+                box-shadow: 0 0 15px #0ef, 0 0 25px #0ef; 
+            }
+            100% {
+                box-shadow: 0 0 25px #0ef,0 0 50px #0ef, 0 0 100px #0ef; 
+            }
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        .heading {
+            font-size: 2rem;
+            color: #0ef;
+            margin-bottom: 20px;
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin: auto;
+            align-items: flex-start;
+        }
+
+        .technical, .professional {
+            width: 48%;
+            text-align: center;
+        }
+
+        .technical h2, .professional h2 {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .bar {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 15px 0;
+            position: relative;
+            width: 100%;
+        }
+
+        .icon-name {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .icon-name i {
+            font-size: 30px;
+            margin-right: 10px;
+        }
+
+        .skill-name {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .progress-container {
+            width: 100%;
+            position: relative;
+        }
+
+        .progress-line {
+            width: 100%;
+            height: 10px;
+            background: #444;
+            border-radius: 5px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-line span {
+            display: block;
+            height: 100%;
+            border-radius: 5px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+        .progress-percent {
+            position: absolute;
+            right: 5px;
+            top: -25px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        .icon-name {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5px;
+        }
+        .icon-name i {
+            font-size: 40px;
+            margin-bottom: 5px;
+        }
+        .contact-container {
+            display: flex;
+            align-items: flex-start; /* Align items vertically */
+            gap: 20px; /* Space between image and form */
+            max-width: 800px; /* Adjust as needed */
+            margin: auto; /* Center on the page */
+            padding: 50px 0; /* Add padding to separate from skills section */
+        }
+        .contact-container img {
+            width: 250px; /* Adjust image width */
+            height: auto;
+            border-radius: 10px;
+        }
+        .contact-form {
+            flex: 1; /* Allow form to take remaining space */
+        }
+        .contact-form form {
+            position: relative;
+        } 
+        .contact-form form input, 
+        .contact-form form textarea {
+            border: none;
+            outline: none;
+            width: 90%;
+            height: 50px;
+            padding: 1px;
+            background: #555557;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            border-radius: 0.5rem;
+        }
+        .contact-form textarea {
+            resize: none;
+            height: 250px;
+        }
+        .contact-form form .send {
+            display: inline-block;
+            padding: 12px 20px;
+            background: #0ef;
+            border-radius: 40px;
+            font-size: 16px;
+            color: #081b29;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 0.5s;
+            box-shadow: 0 0 5px cyan;
+            cursor: pointer;
+            border: none;
+        }
+        .contact-form form .send:hover {
+            box-shadow: 0 0 5px cyan, 0 0 25px cyan, 
+                        0 0 50px cyan, 0 0 100px cyan;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="#" class="logo">Portfolio</a>
+        <nav class="navbar">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>Hello, It's Me</h3>
+            <h1>DIVYAASHRE.E.G</h1>
+            <h3>And I'm a <span class="text"></span></h3>
+            <p>I'm currently a college student pursuing my Computer Science and Engineering degree.</p>
+            <div class="home-sci">
+                <a href="#"><i class='bx bxl-telegram'></i></a>
+                <a href="#"><i class='bx bxl-instagram'></i></a>
+                <a href="#"><i class='bx bxl-whatsapp'></i></a>
+                <a href="#"><i class='bx bxl-linkedin'></i></a>
+            </div>
+            <a href="#" class="btn-box">More about me</a>
+        </div>
+        <div class="image-container">
+            <img src="images.jpg" alt="My Photo">
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <div class="image-container">
+            <img src="images.jpg" alt="My Photo">
+        </div>
+        <div class="about-text">
+            <h2>About <span>Me</span></h2>
+            <h4>Full Stack Developer</h4>
+            <p>
+                I am a second-year college student.
+                I have completed my 12th standard in Sri Chaitanya School with 364 marks.
+                I have completed my first semester with 8.2 CGPA, second semester with 8 CGPA, and third semester with 8 CGPA.
+                I have learned computer languages like Python, C, Java, HTML, CSS, and JavaScript.
+                I like to work both as an individual and in group work.
+                I am a morning owl.
+            </p>
+            <a href="#" class="btn-box">More About Me</a>
+        </div>
+    </section>
+    
+    <h2 class="about-text" style="text-align: center; font-size: 60px;" id="skills">My <span style="color: #00eeff;">Skills</span></h2> 
+    <div class="skills-container">
+        <br><br><br><br><br><br>
+        <div class="technical">
+            <h2>Technical Skills</h2>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bxl-html5' style='color:#00eeff'></i>
+                    <span class="skill-name">HTML</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #00eeff;" data-width="75%"></span>
+                        <div class="progress-percent">75%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bxl-css3' style='color:#c95d2e'></i>
+                    <span class="skill-name">CSS</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #c95d2e;" data-width="60%"></span>
+                        <div class="progress-percent">60%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bxl-javascript' style='color:#b0bc1e'></i>
+                    <span class="skill-name">JavaScript</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #b0bc1e;" data-width="55%"></span>
+                        <div class="progress-percent">55%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bxl-python' style='color:#c32ec9'></i>
+                    <span class="skill-name">Python</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #c32ec9;" data-width="85%"></span>
+                        <div class="progress-percent">85%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="professional">
+            <h2>Professional Skills</h2>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bx-brain' style='color:#0ef'></i>
+                    <span class="skill-name">Creativity</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #0ef;" data-width="90%"></span>
+                        <div class="progress-percent">90%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bx-chat' style='color:#0ef'></i>
+                    <span class="skill-name">Communication</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #0ef;" data-width="65%"></span>
+                        <div class="progress-percent">65%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bx-bulb' style='color:#0ef'></i>
+                    <span class="skill-name">Problem Solving</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #0ef;" data-width="75%"></span>
+                        <div class="progress-percent">75%</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bar">
+                <div class="icon-name">
+                    <i class='bx bx-group' style='color:#0ef'></i>
+                    <span class="skill-name">Teamwork</span>
+                </div>
+                <div class="progress-container">
+                    <div class="progress-line">
+                        <span style="background: #0ef;" data-width="85%"></span>
+                        <div class="progress-percent">85%</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <br><br>
+    <section id="contact">
+        <h2 class="about-text" style="text-align: center; font-size: 60px;" id="skills">Contact <span style="color: #00eeff;">Me</span></h2>
+        <div class="contact-container">
+            <img src="https://tse4.mm.bing.net/th?id=OIP.3OI0KC9E8WXIDZVqo-ajgQHaE2&pid=Api&P=0&h=180" alt="Contact Image">
+            <div class="contact-form">
+                <form action="">
+                    <input type="text" placeholder="Enter your name" required>
+                    <input type="email" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your subject">
+                    <textarea placeholder="Enter your message" style="height: 250px;"></textarea>
+                    <input type="submit" value="Submit" class="send">
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var typed = new Typed(".text", {
+            strings: ["Programmer", "Competitor"],
+            typeSpeed: 100,
+            backSpeed: 100,
+            backDelay: 1000,
+            loop: true
+        });
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.progress-line span').forEach(span => {
+                let width = span.getAttribute('data-width');
+                span.style.width = width;
+            });
+        });
+    </script>
+</body>
+</html>
